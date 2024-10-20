@@ -19,7 +19,7 @@ PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "report.
 
 
 def report(filename=PATH):
-    """Decorator create report file."""
+    """ Декоратор для создания файла отчета """
 
     def my_decorator(func):
         def wrapper(*args, **kwargs):
@@ -35,7 +35,7 @@ def report(filename=PATH):
 
 
 def spending_by_category(transactions: pd.DataFrame, category: str, date: Optional[str] = None) -> pd.DataFrame:
-    """Function get sum of spending by category."""
+    """ Функция возвращает траты по заданной категории """
 
     logger.info(f"Запуск функции {spending_by_category.__name__}")
     if date:

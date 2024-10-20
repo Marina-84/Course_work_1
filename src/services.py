@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 
 
 def investment_bank(month: str, transactions: list[dict[str, Any]], limit: int = 50) -> float:
-    """Function get salary by investment_bank."""
+    """ Функция возвращает сумму, которую удалось бы отложить в «Инвесткопилку» """
 
     logger.info(f"Запуск функции {investment_bank.__name__}.")
     target_date_obj = datetime.datetime.strptime(month, "%Y-%m")

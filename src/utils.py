@@ -22,7 +22,7 @@ PATH_TO_FILE = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", 
 
 
 def get_data_from_excel(excel_path: str) -> DataFrame:
-    """Function get data from excel file."""
+    """ Функция получает данные из файла excel """
 
     logger.info(f"Запуск функции {get_data_from_excel.__name__}")
     if excel_path == "":
@@ -58,7 +58,7 @@ def get_data_from_excel(excel_path: str) -> DataFrame:
 
 
 def get_currency_rates(currencies_list: list[str]) -> list[dict]:
-    """Function get currency rates."""
+    """ Функция получает данные о курсе валют через API """
 
     logger.info(f"Запуск функции {get_currency_rates.__name__}")
     currency_rates = []
@@ -71,7 +71,7 @@ def get_currency_rates(currencies_list: list[str]) -> list[dict]:
 
 
 def get_stock_rates(stocks: list[str], date="2024-08-08") -> list[dict]:
-    """Function get stock rates."""
+    """ Функция получает данные о стоимости акций через API """
 
     stock_rates = []
     for stock in stocks:
@@ -87,7 +87,7 @@ def get_stock_rates(stocks: list[str], date="2024-08-08") -> list[dict]:
 
 
 def get_greeting(date_str: str) -> str:
-    """Function get greeting by time."""
+    """ Функция генерирует приветствие для пользователя в зависимости от времени суток """
 
     time_obj = datetime.datetime.strptime(date_str, "%d.%m.%Y %H:%M:%S")
     if 6 <= time_obj.hour < 11:
@@ -103,7 +103,7 @@ def get_greeting(date_str: str) -> str:
 
 
 def get_data_about_cards(df_data: DataFrame) -> list[dict]:
-    """Function get data about user cards from DataFrame."""
+    """ Функция генерирует данные о банковских картах пользователя """
 
     cards_list = list(Counter(df_data.loc[:, "Номер карты"]))
     cards_data = []
@@ -116,7 +116,7 @@ def get_data_about_cards(df_data: DataFrame) -> list[dict]:
 
 
 def get_top_transactions(df_data: DataFrame, top_number=5) -> list[dict]:
-    """Function get top-5 transactions from DataFrame."""
+    """ Функция генерирует данные о топ-5 транзакциях за текущий месяц """
 
     top_transactions_list = []
     df = df_data.loc[::]
@@ -134,7 +134,7 @@ def get_top_transactions(df_data: DataFrame, top_number=5) -> list[dict]:
 
 
 def filter_by_date(current_date: str, df: DataFrame) -> DataFrame:
-    """Function filter operations since beginning of month till current date."""
+    """ Функция фильтрует DataFrame, оставляя операции только за текущий месяц """
 
     end_date = datetime.datetime.strptime(current_date, "%d.%m.%Y %H:%M:%S")
     start_date = datetime.datetime.strptime(f"01.{end_date.month}.{end_date.year} 00:00:00", "%d.%m.%Y %H:%M:%S")

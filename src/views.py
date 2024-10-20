@@ -20,7 +20,7 @@ PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "user_settings.j
 
 
 def main_page(date: str) -> str:
-    """Function get info for main page."""
+    """ Функция генерирует JSON-ответ для главной страницы пользователя """
 
     logger.info("Запуск функции-генератора JSON-ответа для главной страницы")
     df = get_data_from_excel(os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "operations.xlsx"))

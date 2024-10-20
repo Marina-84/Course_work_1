@@ -5,7 +5,7 @@ from src.views import main_page
 
 
 def main():
-    """Main function."""
+    """ Основная функция"""
 
     date_obj = datetime.datetime.now() - datetime.timedelta(days=365 * 4)
     today = date_obj.strftime("%d.%m.%Y %H:%M:%S")
